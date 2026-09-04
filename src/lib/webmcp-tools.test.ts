@@ -24,6 +24,13 @@ describe('fieldIdFromLabel', () => {
     expect(fieldIdFromLabel('Name', taken)).toBe('name')
     expect(fieldIdFromLabel('name', taken)).toBe('name_2')
   })
+
+  it('keeps a collision suffix within the 32-character limit', () => {
+    const taken = new Set<string>()
+    const label = 'a'.repeat(32)
+    expect(fieldIdFromLabel(label, taken)).toBe(label)
+    expect(fieldIdFromLabel(label, taken)).toBe(`${'a'.repeat(30)}_2`)
+  })
 })
 
 describe('buildCreateLinkBody', () => {

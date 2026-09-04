@@ -83,7 +83,10 @@ export function fieldIdFromLabel(label: string, taken: Set<string>): string {
     .slice(0, 32)
   let candidate = ascii || `f${taken.size + 1}`
   let n = 2
-  while (taken.has(candidate)) candidate = `${ascii || 'f'}_${n++}`.slice(0, 32)
+  while (taken.has(candidate)) {
+    const suffix = `_${n++}`
+    candidate = `${(ascii || 'f').slice(0, 32 - suffix.length)}${suffix}`
+  }
   taken.add(candidate)
   return candidate
 }
