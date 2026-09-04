@@ -1,0 +1,27 @@
+{
+  "name": "ukebaco-webmcp",
+  "version": "1.0.0",
+  "description": "The WebMCP layer of Ukebaco: four tools a browser agent can call to run Google Drive file requests.",
+  "license": "MIT",
+  "type": "module",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "check": "npm run typecheck && npm run test"
+  },
+  "peerDependencies": {
+    "next": "^15.1.0",
+    "react": "^19.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.0",
+    "@types/react": "^19.0.0",
+    "next": "^15.1.0",
+    "react": "^19.0.0",
+    "typescript": "^5.7.0",
+    "vitest": "^2.1.8"
+  }
+}
